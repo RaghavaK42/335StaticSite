@@ -1,0 +1,76 @@
+/* Do not remove this rule */
+
+html {
+    font-size: 14px;
+}
+
+:root {
+    --main-color: darkred;
+    --light-row: lightblue;
+    --page-color: white;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: lightblue;
+    background-image: url("type_icons.png");
+    background-size: 10rem;
+    font-family: "Nunito", sans-serif;
+}
+
+.page {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+    background-color: var(--page-color);
+    border: 2px solid black;
+}
+
+header {
+    line-height: 1.6;
+}
+
+h1 {
+    color: var(--main-color);
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30px;
+    color: var(--main-color);
+}
+
+p {
+    line-height: 1.5;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 7px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+thead {
+    background-color: var(--main-color);
+    color: white;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--light-row);
+}
+
+footer {
+    text-align: center;
+}

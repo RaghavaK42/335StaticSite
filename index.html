@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Can Four Moves Hit 1000 Pokemon for Super Effective Damage?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+          rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <strong>Name: </strong>Raghava Kalidindi<br>
+
+            <strong>Render Site: </strong>
+            <a href="https://YOUR-RENDER-SITE.onrender.com/">
+                My Render Site
+            </a><br>
+
+            <strong>Last Modified: </strong><!--#echo var="LAST_MODIFIED" --><br>
+        </header>
+
+        <hr>
+
+        <main>
+            <h1>Can Four Attack Types Hit Over 1,000 Pokemon?</h1>
+
+            <p>
+                In Pokemon, a Pokemon can only learn 4 moves at a time, meaning
+                they can only deal damage with four types at a time (under most circumstances). 
+                Ona random Thursday about a year ago, a friend asked me in converstation whether it was possible to choose only four
+                attacking types that could hit more than 1,000 Pokemon for
+                super-effective damage. I decided that the most reasonable
+                response was to write a Python program and test every possible
+                type combination.
+            </p>
+
+            <h2>What does super effective mean?</h2>
+
+            <p>
+                Every Pokemon has one or two types, and each attack also has a
+                type. An attack is super effective when its type has an
+                advantage over the defending Pokemon's type. For example,
+                Water attacks are super effective against Fire Pokemon.
+                The goal is to determine if it was possible for a Pokemon 
+                with 4 different types of coverage to hit over 1000 Pokemon for super effective damage.
+            </p>
+
+            <p>
+                My data included 1,215 Pokemon and forms through the Scarlet
+                and Violet DLC. This means the new Mega Evolutions from 
+                Legends ZA were not included because my data file I found online didn't have them and I was too lazy to add them myself,
+                so they are left as an exercise for the reader.
+                The numbers below show how many of those
+                Pokemon can be hit super effectively by each attack type or
+                combination of types.
+            </p>
+
+            <h2>Coverage of Each Individual Type</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Attack Type</th>
+                        <th scope="col">Pokemon Covered</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>1</td><td>Ice</td><td>343</td><td>28.23%</td></tr>
+                    <tr><td>2</td><td>Ground</td><td>333</td><td>27.41%</td></tr>
+                    <tr><td>3</td><td>Rock</td><td>321</td><td>26.42%</td></tr>
+                    <tr><td>4</td><td>Fighting</td><td>316</td><td>26.01%</td></tr>
+                    <tr><td>5</td><td>Fire</td><td>309</td><td>25.43%</td></tr>
+                    <tr><td>6</td><td>Flying</td><td>288</td><td>23.70%</td></tr>
+                    <tr><td>7</td><td>Electric</td><td>248</td><td>20.41%</td></tr>
+                    <tr><td>8</td><td>Grass</td><td>226</td><td>18.60%</td></tr>
+                    <tr><td>9</td><td>Bug</td><td>222</td><td>18.27%</td></tr>
+                    <tr><td>10</td><td>Fairy</td><td>216</td><td>17.78%</td></tr>
+                    <tr><td>11</td><td>Water</td><td>213</td><td>17.53%</td></tr>
+                    <tr><td>12</td><td>Ghost</td><td>201</td><td>16.54%</td></tr>
+                    <tr><td>13</td><td>Dark</td><td>191</td><td>15.72%</td></tr>
+                    <tr><td>14</td><td>Steel</td><td>166</td><td>13.66%</td></tr>
+                    <tr><td>15</td><td>Poison</td><td>160</td><td>13.17%</td></tr>
+                    <tr><td>16</td><td>Psychic</td><td>157</td><td>12.92%</td></tr>
+                    <tr><td>17</td><td>Dragon</td><td>85</td><td>7.00%</td></tr>
+                    <tr><td>18</td><td>Normal</td><td>0</td><td>0.00%</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                Ice was the best attacking type by itself, covering 343
+                Pokemon. Normal was unsurprisingly in last place because
+                Normal attacks are not super effective against any type.
+            </p>
+
+            <h2>Top Ten Two-Type Combinations</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Types</th>
+                        <th scope="col">Pokemon Covered</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>1</td><td>Ice / Ground</td><td>650</td><td>53.50%</td></tr>
+                    <tr><td>2</td><td>Ice / Fighting</td><td>619</td><td>50.95%</td></tr>
+                    <tr><td>3</td><td>Ground / Flying</td><td>608</td><td>50.04%</td></tr>
+                    <tr><td>4</td><td>Fire / Ground</td><td>583</td><td>47.98%</td></tr>
+                    <tr><td>5</td><td>Fighting / Flying</td><td>580</td><td>47.74%</td></tr>
+                    <tr><td>6</td><td>Ground / Rock</td><td>578</td><td>47.57%</td></tr>
+                    <tr><td>7</td><td>Fighting / Rock</td><td>577</td><td>47.49%</td></tr>
+                    <tr><td>8</td><td>Electric / Ground</td><td>562</td><td>46.26%</td></tr>
+                    <tr><td>9</td><td>Ice / Rock</td><td>553</td><td>45.51%</td></tr>
+                    <tr><td>10</td><td>Ground / Bug</td><td>547</td><td>45.02%</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Top Ten Four-Type Combinations</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Types</th>
+                        <th scope="col">Pokemon Covered</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Electric / Fighting / Ground / Flying</td>
+                        <td>966</td>
+                        <td>79.51%</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Fire / Electric / Ground / Fairy</td>
+                        <td>947</td>
+                        <td>77.94%</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Electric / Ice / Fighting / Ground</td>
+                        <td>946</td>
+                        <td>77.86%</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Grass / Ice / Fighting / Ground</td>
+                        <td>931</td>
+                        <td>76.63%</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Ice / Fighting / Ground / Flying</td>
+                        <td>931</td>
+                        <td>76.63%</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Ice / Fighting / Ground / Ghost</td>
+                        <td>929</td>
+                        <td>76.46%</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Fire / Electric / Fighting / Ground</td>
+                        <td>927</td>
+                        <td>76.30%</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Ice / Fighting / Ground / Dark</td>
+                        <td>919</td>
+                        <td>75.64%</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Electric / Ground / Flying / Bug</td>
+                        <td>917</td>
+                        <td>75.47%</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Electric / Fighting / Flying / Ghost</td>
+                        <td>916</td>
+                        <td>75.39%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>The Initial Answer</h2>
+
+            <p>
+                Under the normal type rules, the answer is no. The best
+                combination was Electric, Fighting, Ground, and Flying, which
+                covered 966 Pokemon. That left it 34 Pokemon short of the
+                1,000-Pokemon goal.
+            </p>
+
+            <h2>But What About Freeze-Dry?</h2>
+
+            <p>
+                Freeze-Dry is a strange Ice-type attack because it is super
+                effective against Water Pokemon. Normally, Ice attacks are resisted by Water types. 
+                I repeated the calculations as
+                if one of the four types was Freeze-Dry instead of a normal Ice attack.
+            </p>
+
+            <h2>Individual Types With the Freeze-Dry Bonus</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Attack Type</th>
+                        <th scope="col">Pokemon Covered</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>1</td><td>Ice</td><td>509</td><td>41.89%</td></tr>
+                    <tr><td>2</td><td>Ground</td><td>333</td><td>27.41%</td></tr>
+                    <tr><td>3</td><td>Rock</td><td>321</td><td>26.42%</td></tr>
+                    <tr><td>4</td><td>Fighting</td><td>316</td><td>26.01%</td></tr>
+                    <tr><td>5</td><td>Fire</td><td>309</td><td>25.43%</td></tr>
+                    <tr><td>6</td><td>Flying</td><td>288</td><td>23.70%</td></tr>
+                    <tr><td>7</td><td>Electric</td><td>248</td><td>20.41%</td></tr>
+                    <tr><td>8</td><td>Grass</td><td>226</td><td>18.60%</td></tr>
+                    <tr><td>9</td><td>Bug</td><td>222</td><td>18.27%</td></tr>
+                    <tr><td>10</td><td>Fairy</td><td>216</td><td>17.78%</td></tr>
+                    <tr><td>11</td><td>Water</td><td>213</td><td>17.53%</td></tr>
+                    <tr><td>12</td><td>Ghost</td><td>201</td><td>16.54%</td></tr>
+                    <tr><td>13</td><td>Dark</td><td>191</td><td>15.72%</td></tr>
+                    <tr><td>14</td><td>Steel</td><td>166</td><td>13.66%</td></tr>
+                    <tr><td>15</td><td>Poison</td><td>160</td><td>13.17%</td></tr>
+                    <tr><td>16</td><td>Psychic</td><td>157</td><td>12.92%</td></tr>
+                    <tr><td>17</td><td>Dragon</td><td>85</td><td>7.00%</td></tr>
+                    <tr><td>18</td><td>Normal</td><td>0</td><td>0.00%</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Top Two-Type Combinations With Freeze-Dry</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Types</th>
+                        <th scope="col">Pokemon Covered</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>1</td><td>Ice / Ground</td><td>796</td><td>65.51%</td></tr>
+                    <tr><td>2</td><td>Ice / Fighting</td><td>765</td><td>62.96%</td></tr>
+                    <tr><td>3</td><td>Ice / Rock</td><td>706</td><td>58.11%</td></tr>
+                    <tr><td>4</td><td>Fire / Ice</td><td>678</td><td>55.80%</td></tr>
+                    <tr><td>5</td><td>Water / Ice</td><td>662</td><td>54.49%</td></tr>
+                    <tr><td>6</td><td>Ice / Ghost</td><td>648</td><td>53.33%</td></tr>
+                    <tr><td>7</td><td>Ice / Steel</td><td>645</td><td>53.09%</td></tr>
+                    <tr><td>8</td><td>Ice / Dark</td><td>638</td><td>52.51%</td></tr>
+                    <tr><td>9</td><td>Ice / Flying</td><td>631</td><td>51.93%</td></tr>
+                    <tr><td>10</td><td>Ice / Psychic</td><td>616</td><td>50.70%</td></tr>
+                </tbody>
+            </table>
+
+            <h2>All Four-Type Combinations Reaching 1,000</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Types</th>
+                        <th scope="col">Pokemon Covered</th>
+                        <th scope="col">Percentage</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>1</td><td>Ice / Fighting / Ground / Ghost</td><td>1,055</td><td>86.83%</td></tr>
+                    <tr><td>2</td><td>Ice / Fighting / Ground / Flying</td><td>1,053</td><td>86.67%</td></tr>
+                    <tr><td>3</td><td>Ice / Fighting / Ground / Dark</td><td>1,045</td><td>86.01%</td></tr>
+                    <tr><td>4</td><td>Ice / Fighting / Ground / Rock</td><td>1,035</td><td>85.19%</td></tr>
+                    <tr><td>5</td><td>Fire / Ice / Fighting / Ground</td><td>1,031</td><td>84.86%</td></tr>
+                    <tr><td>6</td><td>Ice / Fighting / Ground / Bug</td><td>1,022</td><td>84.12%</td></tr>
+                    <tr><td>7</td><td>Ice / Fighting / Rock / Ghost</td><td>1,019</td><td>83.87%</td></tr>
+                    <tr><td>8</td><td>Ice / Fighting / Ground / Steel</td><td>1,017</td><td>83.70%</td></tr>
+                    <tr><td>9</td><td>Ice / Fighting / Ground / Fairy</td><td>1,010</td><td>83.13%</td></tr>
+                    <tr><td>10</td><td>Ice / Fighting / Rock / Dark</td><td>1,009</td><td>83.05%</td></tr>
+                    <tr><td>11</td><td>Ice / Fighting / Ground / Psychic</td><td>1,007</td><td>82.88%</td></tr>
+                    <tr><td>12</td><td>Ice / Ground / Rock / Ghost</td><td>1,006</td><td>82.80%</td></tr>
+                    <tr><td>13</td><td>Ice / Fighting / Flying / Ghost</td><td>1,002</td><td>82.47%</td></tr>
+                    <tr><td>14</td><td>Ice / Fighting / Poison / Ground</td><td>1,001</td><td>82.39%</td></tr>
+                    <tr><td>15</td><td>Ice / Fighting / Flying / Dark</td><td>1,000</td><td>82.30%</td></tr>
+                    <tr><td>16</td><td>Ice / Ground / Rock / Fairy</td><td>1,000</td><td>82.30%</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Final Answer</h2>
+
+            <p>
+                Four normal attacking types cannot hit more than 1,000 of the
+                Pokemon in this data set for super-effective damage. However,
+                if we use Freeze-Dry as one of the four moves, then
+                several combinations reach 1,000.
+            </p>
+
+            <p>
+                The best combination was Ice, Fighting, Ground, and Ghost,
+                which covered 1,055 of the 1,215 Pokemon. I was actually not expecting
+                Ghost to appear in the top spot, nor bug at all, but was pleasantly surprised to see that they did. 
+            </p>
+
+            <p>
+                If you're interested in Pokemon and CS, here is a video showcasing
+                how Pokemon Showdown is Turing complete:
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/cILfJwtGcqc"
+                    title="Pokémon type-chart video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </p>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>Thank you for listening to my TED talk.</p>
+        </footer>
+    </div>
+</body>
+</html>
